@@ -8,6 +8,8 @@ from django.contrib.auth.decorators import login_required
 from carts.views import _cart_id
 from carts.models import Cart,CartItem
 
+import requests 
+
 # Create your views here.
 
 def register(request):

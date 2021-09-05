@@ -10,7 +10,8 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 classs="card-title mb-4">Billing Address</h4>
-                        <form action="">
+                        <form action="{% url 'place_order' %}" method="POST">
+                            {% csrf_token %}
                 <div class="form-row">
                     <div class="col form-group">
                         <label for="">First Name</label>
@@ -43,6 +44,10 @@
                 </div>
                 <div class="form-row">
                     <div class="col form-group">
+                        <label for="">City</label>
+                        <input type="text" name="city" class="form-control" required>
+                    </div>
+                    <div class="col form-group">
                         <label for="">Country</label>
                         <input type="text" name="country" class="form-control" required>
                     </div>
@@ -56,7 +61,6 @@
                         <textarea name="order_note" rows="2" class="form-control"></textarea>
                     </div>
                 
-                        </form>
                     </div>
                 </div> <!-- card.// -->
         
@@ -103,10 +107,13 @@
                         {%endfor%}
                         </tbody>
                         </table>
-                    <a href="./place-order.html" class="btn btn-primary btn-block"> Place Order </a>
+                    <button type="submit" name="submit" class="btn btn-primary btn-block"> Place Order</button>
                     <a href="{% url 'store' %}" class="btn btn-light btn-block">Continue Shopping</a>
+                </form>
+                
                 </div> <!-- card-body.// -->
                 </div> <!-- card.// -->
+
         
         </aside> <!-- col.// -->
         
